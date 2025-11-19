@@ -25,6 +25,6 @@ describe('Password class, test suite', () => {
 
     // Fix
     test('Should Hash Password', () => {
-        expect(password.getPasswordHash()).not.toBe('Password1234');
+        expect(acceptablePassword.getPasswordHash()).not.toBe('Password1234');
     });
 });
