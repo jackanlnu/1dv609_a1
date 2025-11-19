@@ -2,8 +2,8 @@
 // Select one of the Password versions to test
 
 // import { Password } from '../src/BugDoesNotHash'
-import { Password } from '../src/BugDoesNotTrim'
-// import { Password } from '../src/BugisPasswordAlwaysSame'
+// import { Password } from '../src/BugDoesNotTrim'
+import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
 // import { Password } from '../src/BugMissingPasswordCheck'
 // import { Password } from '../src/BugNeverContainsNumbers'
@@ -31,5 +31,10 @@ describe('Password class, test suite', () => {
     test('Should Trim Password', () => {
         const spacesPassword = new Password(' Password1234 ')
         expect(acceptablePassword.getPasswordHash()).toBe(spacesPassword.getPasswordHash());
+    });
+
+    test('Should Return False if Diffrent Password', () => {
+        const diffrentPassword = new Password('Password12345')
+        expect(acceptablePassword.isPasswordSame(diffrentPassword)).toBe(false);
     });
 });
