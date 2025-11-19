@@ -6,9 +6,9 @@
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
 // import { Password } from '../src/BugMissingPasswordCheck'
-import { Password } from '../src/BugNeverContainsNumbers'
+// import { Password } from '../src/BugNeverContainsNumbers'
 // import { Password } from '../src/BugToShortPassword'
-// import { Password } from '../src/BugVeryShort'
+import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
 // import { Password } from '../src/BugWrongMessage'
 // import { Password } from '../src/Correct'
@@ -43,7 +43,7 @@ describe('Password class, test suite', () => {
     });
 
     test('Should Throw Error if Password Is too short', () => {
-        expect(() => new Password('Password1')).toThrow();
+        expect(() => new Password('Password123')).toThrow();
     });
 
     test('Should Not Throw Error if Password Meets Criteria', () => {
