@@ -5,8 +5,8 @@
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
-import { Password } from '../src/BugMissingPasswordCheck'
-// import { Password } from '../src/BugNeverContainsNumbers'
+// import { Password } from '../src/BugMissingPasswordCheck'
+import { Password } from '../src/BugNeverContainsNumbers'
 // import { Password } from '../src/BugToShortPassword'
 // import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
@@ -15,7 +15,7 @@ import { Password } from '../src/BugMissingPasswordCheck'
 
 describe('Password class, test suite', () => {
     //put constants here to increase readability
-    const acceptablePassword = new Password('Password1234')
+    const acceptablePassword = 'Password1234';
     const emptyPassword = '';
 
     /* test('replace this test with one of your own and add more', () => {
@@ -25,17 +25,17 @@ describe('Password class, test suite', () => {
 
     // Fix
     test('Should Hash Password', () => {
-        expect(acceptablePassword.getPasswordHash()).not.toBe('Password1234');
+        expect(new Password(acceptablePassword).getPasswordHash()).not.toBe('Password1234');
     });
 
     test('Should Trim Password', () => {
         const spacesPassword = new Password(' Password1234 ')
-        expect(acceptablePassword.getPasswordHash()).toBe(spacesPassword.getPasswordHash());
+        expect(new Password(acceptablePassword).getPasswordHash()).toBe(spacesPassword.getPasswordHash());
     });
 
     test('Should Return False if Diffrent Password', () => {
         const diffrentPassword = new Password('Password12345')
-        expect(acceptablePassword.isPasswordSame(diffrentPassword)).toBe(false);
+        expect(new Password(acceptablePassword).isPasswordSame(diffrentPassword)).toBe(false);
     });
 
     test('Should Throw Error if Password Does Not Contain Number', () => {
