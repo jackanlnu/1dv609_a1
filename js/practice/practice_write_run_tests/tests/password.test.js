@@ -42,8 +42,8 @@ describe('Password class, test suite', () => {
         expect(() => new Password('Passwordtest')).toThrow('No number found');
     });
 
-    test('Should Throw Error if Password Is too short', () => {
-        expect(() => new Password('Password123')).toThrow();
+    test('Should Throw Correct Error if Password Is too short', () => {
+        expect(() => new Password('Password123')).toThrow('Too short password');
     });
 
     test('Should Not Throw Error if Password Meets Criteria', () => {
