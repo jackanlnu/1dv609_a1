@@ -8,9 +8,9 @@
 // import { Password } from '../src/BugMissingPasswordCheck'
 // import { Password } from '../src/BugNeverContainsNumbers'
 // import { Password } from '../src/BugToShortPassword'
-import { Password } from '../src/BugVeryShort'
+// import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
-// import { Password } from '../src/BugWrongMessage'
+import { Password } from '../src/BugWrongMessage'
 // import { Password } from '../src/Correct'
 
 describe('Password class, test suite', () => {
@@ -38,8 +38,8 @@ describe('Password class, test suite', () => {
         expect(new Password(acceptablePassword).isPasswordSame(diffrentPassword)).toBe(false);
     });
 
-    test('Should Throw Error if Password Does Not Contain Number', () => {
-        expect(() => new Password('Passwordtest')).toThrow();
+    test('Should Throw Correct Error if Password Does Not Contain Number', () => {
+        expect(() => new Password('Passwordtest')).toThrow('No number found');
     });
 
     test('Should Throw Error if Password Is too short', () => {
