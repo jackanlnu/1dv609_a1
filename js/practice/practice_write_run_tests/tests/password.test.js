@@ -1,8 +1,8 @@
 
 // Select one of the Password versions to test
 
-import { Password } from '../src/BugDoesNotHash'
-// import { Password } from '../src/BugDoesNotTrim'
+// import { Password } from '../src/BugDoesNotHash'
+import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
 // import { Password } from '../src/BugMissingPasswordCheck'
@@ -26,5 +26,10 @@ describe('Password class, test suite', () => {
     // Fix
     test('Should Hash Password', () => {
         expect(acceptablePassword.getPasswordHash()).not.toBe('Password1234');
+    });
+
+    test('Should Trim Password', () => {
+        const spacesPassword = new Password(' Password1234 ')
+        expect(acceptablePassword.getPasswordHash()).toBe(spacesPassword.getPasswordHash());
     });
 });
