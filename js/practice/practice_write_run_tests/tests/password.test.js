@@ -4,8 +4,8 @@
 // import { Password } from '../src/BugDoesNotHash'
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
-import { Password } from '../src/BugMissingNumberCheck'
-// import { Password } from '../src/BugMissingPasswordCheck'
+// import { Password } from '../src/BugMissingNumberCheck'
+import { Password } from '../src/BugMissingPasswordCheck'
 // import { Password } from '../src/BugNeverContainsNumbers'
 // import { Password } from '../src/BugToShortPassword'
 // import { Password } from '../src/BugVeryShort'
@@ -40,5 +40,9 @@ describe('Password class, test suite', () => {
 
     test('Should Throw Error if Password Does Not Contain Number', () => {
         expect(() => new Password('Passwordtest')).toThrow();
+    });
+
+    test('Should Throw Error if Password Is too short', () => {
+        expect(() => new Password('Password1')).toThrow();
     });
 });
