@@ -23,7 +23,10 @@ describe('Password class, test suite', () => {
     }); */
     //Add your tests here
 
-    // Fix
+    test('Should Use Correct Hashing Algorithm', () => {
+        expect(new Password(acceptablePassword).getPasswordHash()).toBe(7628963596958728000);
+    });
+
     test('Should Hash Password', () => {
         expect(new Password(acceptablePassword).getPasswordHash()).not.toBe('Password1234');
     });
