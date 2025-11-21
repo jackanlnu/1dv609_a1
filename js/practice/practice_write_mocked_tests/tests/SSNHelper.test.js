@@ -4,8 +4,8 @@ import { SSNHelper } from '../src/correct/SSNHelper';
 
 describe('SSNHelpe Tests', () => {
 
-    test('replace this test with one of your own', () => {
-        expect(true).toBe(true);
+    test('isValidDay Should Return True For Valid Day', () => {
+        expect(new SSNHelper().isValidDay(31)).toBe(true);
     });
 
     //Add your tests here
