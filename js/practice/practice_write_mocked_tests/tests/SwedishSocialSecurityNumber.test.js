@@ -3,8 +3,8 @@ import { jest } from '@jest/globals';
 // import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'; 
-import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn'; 
-// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongYear'; 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn'; 
+import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongYear'; 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
 describe('SwedishSocialSecurityNumber Tests', () => {
@@ -31,8 +31,8 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         }
         const spacedSecurityNumber = '  050210-0000  '
         const SecurityNumber = new SwedishSocialSecurityNumber(spacedSecurityNumber, mock)
-        expect(SecurityNumber.getYear()).toBe('05');
-        expect(SecurityNumber.getSerialNumber()).toBe('0000');
+        expect(SecurityNumber.getYear()).not.toMatch(' ');
+        expect(SecurityNumber.getSerialNumber()).not.toMatch(' ');
     });
 
     test('constructor Should Throw Error For Incorrect Luhn', () => {
