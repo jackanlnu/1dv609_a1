@@ -3,7 +3,7 @@
 // import { SSNHelper } from '../src/bugs/BuggySSNHelperAllowMonth0'; 
 // import { SSNHelper } from '../src/bugs/BuggySSNHelperIncorrectFormat'; 
 // import { SSNHelper } from '../src/bugs/BuggySSNHelperMessyLuhn'; 
-import { SSNHelper } from '../src/bugs/BuggySSNHelperWrongLength'; 
+// import { SSNHelper } from '../src/bugs/BuggySSNHelperWrongLength'; 
 
 
 describe('SSNHelpe Tests', () => {

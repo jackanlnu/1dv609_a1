@@ -17,8 +17,8 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         luhnisCorrect: jest.fn()
     }
 
-    test('replace this test with one of your own', () => {
-        expect(() => new SwedishSocialSecurityNumber('050210-0000', mock)).not.toThrow();
+    test('constructor Should Throw Error For Too Long Security Number', () => {
+        expect(() => new SwedishSocialSecurityNumber('050210-00000', mock)).toThrow();
     });
 
     //Add your tests here
