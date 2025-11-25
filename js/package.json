@@ -7,7 +7,9 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "t1": "node --experimental-vm-modules node_modules/jest/bin/jest.js practice/practice_write_run_test",
-    "t2": "node --experimental-vm-modules node_modules/jest/bin/jest.js practice/practice_write_mocked_tests"
+    "t2": "node --experimental-vm-modules node_modules/jest/bin/jest.js practice/practice_write_mocked_tests",
+    "t2:ssn": "node --experimental-vm-modules node_modules/jest/bin/jest.js practice/practice_write_mocked_tests/tests/SwedishSocialSecurityNumber.test.js",
+    "t2:helper": "node --experimental-vm-modules node_modules/jest/bin/jest.js practice/practice_write_mocked_tests/tests/SSNHelper.test.js"
   },
   "keywords": [],
   "author": "",
