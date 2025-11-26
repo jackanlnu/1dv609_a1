@@ -20,8 +20,8 @@ describe('SSNHelpe Tests', () => {
         expect(new SSNHelper().isCorrectFormat('05021-112')).toBe(false);
     });
 
-    test('luhnisCorrect Should Return False For Invalid Input', () => {
-        expect(new SSNHelper().luhnisCorrect('050210-5252')).toBe(false);
+    test('luhnisCorrect Should Return True For Correct Input', () => {
+        expect(new SSNHelper().luhnisCorrect('050210-0050')).toBe(true);
     });
 
     test('isCorrectLength Should Return False For Too Long Input', () => {
