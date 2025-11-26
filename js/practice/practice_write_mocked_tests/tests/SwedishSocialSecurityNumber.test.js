@@ -12,7 +12,7 @@ import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurit
 describe('SwedishSocialSecurityNumber Tests', () => {
     //put constants here to increase readability
 
-    test('constructor Should Throw Error For Too Long Security Number', () => {
+    test('constructor Should Throw Error For Too Long Social Security Number', () => {
         const mock = {
             isCorrectLength: jest.fn().mockReturnValue(false),
             isCorrectFormat: jest.fn().mockReturnValue(true),
@@ -23,7 +23,7 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         expect(() => new SwedishSocialSecurityNumber('050210-00000', mock)).toThrow('To short, must be 11 characters');
     });
 
-    test('constructor Should Trim Security Number Input', () => {
+    test('constructor Should Trim Social Security Number Input', () => {
         const mock = {
             isCorrectLength: jest.fn(),
             isCorrectFormat: jest.fn(),
@@ -48,7 +48,7 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         expect(() => new SwedishSocialSecurityNumber('050210-0000', mock)).toThrow("Invalid SSN according to Luhn's algorithm");
     });
 
-    test('getYear Should Return Security Number Year', () => {
+    test('getYear Should Return Social Security Number Year', () => {
         const mock = {
             isCorrectLength: jest.fn(),
             isCorrectFormat: jest.fn(),
@@ -59,7 +59,7 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         expect(new SwedishSocialSecurityNumber('050210-0000', mock).getYear()).toBe('05');
     });
 
-    test('getMonth Should Return Security Number Month', () => {
+    test('getMonth Should Return Social Security Number Month', () => {
         const mock = {
             isCorrectLength: jest.fn(),
             isCorrectFormat: jest.fn(),
@@ -70,7 +70,7 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         expect(new SwedishSocialSecurityNumber('050210-0000', mock).getMonth()).toBe('02');
     });
 
-    test('getDay Should Return Security Number Day', () => {
+    test('getDay Should Return Social Security Number Day', () => {
         const mock = {
             isCorrectLength: jest.fn(),
             isCorrectFormat: jest.fn(),
