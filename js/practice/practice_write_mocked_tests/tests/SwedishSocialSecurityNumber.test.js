@@ -1,11 +1,12 @@
 import { jest } from '@jest/globals';
 
-// import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'; 
+import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn'; 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongYear'; 
-import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongMonth'; 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongMonth'; 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongDay'; 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
 describe('SwedishSocialSecurityNumber Tests', () => {
@@ -67,6 +68,17 @@ describe('SwedishSocialSecurityNumber Tests', () => {
             luhnisCorrect: jest.fn()
         }
         expect(new SwedishSocialSecurityNumber('050210-0000', mock).getMonth()).toBe('02');
+    });
+
+    test('getDay Should Return Security Number Day', () => {
+        const mock = {
+            isCorrectLength: jest.fn(),
+            isCorrectFormat: jest.fn(),
+            isValidMonth: jest.fn(),
+            isValidDay: jest.fn(),
+            luhnisCorrect: jest.fn()
+        }
+        expect(new SwedishSocialSecurityNumber('050210-0000', mock).getDay()).toBe('10');
     });
 
     //Add your tests here
