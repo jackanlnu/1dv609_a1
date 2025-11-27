@@ -1,6 +1,6 @@
 import { beforeEach, jest } from '@jest/globals'
 
-import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
+// import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn' 
@@ -10,7 +10,7 @@ import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurit
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongDay' 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoFormatCheck' 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoMonthCheck' 
-// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoDayCheck' 
+import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoDayCheck' 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
 describe('SwedishSocialSecurityNumber Tests', () => {
@@ -40,6 +40,11 @@ describe('SwedishSocialSecurityNumber Tests', () => {
     test('constructor Should Throw Error For Social Security Number With Invalid Month', () => {
         helperMock.isValidMonth.mockReturnValue(false)
         expect(() => new SwedishSocialSecurityNumber('052210-0000', helperMock)).toThrow('Invalid month in SSN')
+    })
+
+    test('constructor Should Throw Error For Social Security Number With Invalid Day', () => {
+        helperMock.isValidDay.mockReturnValue(false)
+        expect(() => new SwedishSocialSecurityNumber('050242-0000', helperMock)).toThrow('Invalid day in SSN')
     })
 
     test('constructor Should Trim Social Security Number Input', () => {
