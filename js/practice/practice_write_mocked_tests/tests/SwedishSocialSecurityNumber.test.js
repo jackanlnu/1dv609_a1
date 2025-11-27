@@ -8,7 +8,9 @@ import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurit
 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongMonth' 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongDay' 
-//import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoFormatCheck' 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoFormatCheck' 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoMonthCheck' 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoDayCheck' 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
 describe('SwedishSocialSecurityNumber Tests', () => {
@@ -33,6 +35,11 @@ describe('SwedishSocialSecurityNumber Tests', () => {
     test('constructor Should Throw Error For Social Security Number With Wrong Format', () => {
         helperMock.isCorrectFormat.mockReturnValue(false)
         expect(() => new SwedishSocialSecurityNumber('05021060-00', helperMock)).toThrow('Incorrect format, must be: YYMMDD-XXXX')
+    })
+
+    test('constructor Should Throw Error For Social Security Number With Invalid Month', () => {
+        helperMock.isValidMonth.mockReturnValue(false)
+        expect(() => new SwedishSocialSecurityNumber('052210-0000', helperMock)).toThrow('Invalid month in SSN')
     })
 
     test('constructor Should Trim Social Security Number Input', () => {
