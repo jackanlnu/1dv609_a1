@@ -1,6 +1,6 @@
 import { beforeEach, jest } from '@jest/globals'
 
-// import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
+import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn' 
@@ -10,7 +10,7 @@ import { beforeEach, jest } from '@jest/globals'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberWrongDay' 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoFormatCheck' 
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoMonthCheck' 
-import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoDayCheck' 
+// import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoDayCheck' 
 
 //NOTE THESE TESTS SHOULD NOT BE DEPENDENT ON SSNHelper BUT USE MOCKING
 describe('SwedishSocialSecurityNumber Tests', () => {
@@ -28,7 +28,6 @@ describe('SwedishSocialSecurityNumber Tests', () => {
 
     test('constructor Should Throw Error For Too Long Social Security Number', () => {
         helperMock.isCorrectLength.mockReturnValue(false)
-        helperMock.isCorrectFormat.mockReturnValue(true)
         expect(() => new SwedishSocialSecurityNumber('050210-00000', helperMock)).toThrow('To short, must be 11 characters')
     })
 
